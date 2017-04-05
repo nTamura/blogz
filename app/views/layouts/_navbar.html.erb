@@ -13,16 +13,33 @@
       <a href="/">
         <img id="navlogo" class="navbar-brand" src="https://blog.vararu.org/content/images/2014/May/logo-main-grey-2x.png" alt="">
       </a>
-      <%= link_to 'Blogz', root_path, class: 'navbar-brand'  %>
+      <%= link_to 'Blogz Feed', blog_index_path, class: 'navbar-brand' %></li>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li class="<%= 'active' if current_page?(blog_index_path) %>"><%= link_to 'Home', blog_index_path %></li>
+        <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to 'Dashboard', root_path %></li>
+
+
         <li class="<%= 'active' if current_page?(about_path) %>"><%= link_to 'About', about_path %></li>
-        <li s="<%= 'active' if current_page?(contact_path) %>"><%= link_to 'Contact', contact_path %></li>
-        <li>Log In</li>
-        <li>Sign Up</li>
+        <li class="<%= 'active' if current_page?(contact_path) %>"><%= link_to 'Contact', contact_path %></li>
+
+        <% if user_signed_in? %>
+
+        <li><%= link_to 'Logout', sessions_path, method: :delete, data: {confirm: 'Logout?'} %> </li>
+        <% else %>
+        <li><%= link_to 'Sign Up', new_user_path %> </li>
+        <li><%= link_to 'Login', new_session_path %> </li>
+        <% end %>
+        </ul>
+        </div>
+        </nav>
+
+        <% if flash[:notice] %>
+        <div class="alert alert-info"><%= flash[:notice] %></div>
+        <% elsif flash[:alert] %>
+        <div class="alert alert-danger"><%= flash[:alert] %></div>
+        <% end %>
 
 
       </ul>

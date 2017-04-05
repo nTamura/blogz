@@ -1,3 +1,5 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -33,4 +35,18 @@ html{
 
 .fa{
   font-size: 20px;
+}
+
+.pad-right{
+  padding-right: 10px;
+}
+.pad-left{
+  padding-left: 10px;
+}
+
+.img_icon{
+  max-width: 150px;
+  height: auto;
+  float: left;
+  padding-right: 10px;
 }
