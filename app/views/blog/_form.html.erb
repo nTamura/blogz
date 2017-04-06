@@ -1,0 +1,22 @@
+<!-- if you pass a persisted AR obj to the form for, then form for will submit a patch request instead of post using hidden field technique and the url for the form will be update action url, question_path(@question) -->
+
+<!-- render helps you insert a partial _file. rails expects that youve defined a partial within the same folder of this file. note that partials will ahve access to instance vars. if you want to pass a local var, you need to do so explicitly. render: 'form', my_var = 'abc'. also if the partial is in another folder, then you will ahve to put the whole path for the partials. -->
+
+
+<div class="col-md-6">
+<%= @post.errors.full_messages.join(', ') %>
+
+<%= form_for @post do |f| %>
+    <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="form-group">
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+
+  <br>
+  <%= f.submit %>
+<% end %>
+</div>

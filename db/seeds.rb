@@ -1,4 +1,7 @@
 @posts = Post.all
+@comments = Comment.all
+posts = Post.all
+@users = User.all
 # answers_count = Answer.count
 
 30.times do
@@ -19,13 +22,11 @@ end
 end
 
 
-# posts.each do |p|
-#   rand(0..10).times do
-#     p.comments.create({
-#       body: Faker::RickAndMorty.quote
-#       })
-#   end
-# end
-
-
-puts "#{posts}"
+Post.all.each do |q|
+  rand(1..15).times do
+    q.comments.create({
+      username: Faker::Name.first_name,
+      body: Faker::ChuckNorris.fact
+      })
+  end
+end

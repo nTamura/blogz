@@ -1,4 +1,6 @@
 class BlogController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
+  before_action :find_post, only: [:show, :edit, :update, :destroy]
 
   def index
     @posts = Post.last(90)
@@ -9,6 +11,9 @@ class BlogController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @users = User.all
+    @comment = Comment.new
+    @comments = Comment.all
   end
 
   def new

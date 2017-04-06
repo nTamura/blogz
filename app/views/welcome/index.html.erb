@@ -1,64 +1,68 @@
-<div class="jumbotron">
+<div class="">
   <% if user_signed_in? %>
-  <h1>Welcome <%= current_user.username %></h1>
-    <% else %>
-    <h1>Welcome to Blogz</h1>
-    <% end %>
-  Yo dog, we heard you like blogz
+    <h1>Welcome <%= current_user.username %></h1>
+  <% else %>
+    <h1>Dashboard</h1>
+  <% end %>
+  <hr />
 </div>
 
 
-  <div class="row">
-
-    <div class="login-box">
-
-      <% if user_signed_in? %>
-      <div class="col-md-6">
-        <div class="well">
-          <a href="#" class="pull-right">edit</a>
-          <img class="img_icon" src="http://cagewheel.com/images/thumb1.png" alt="">
-          <h2><%= current_user.username %> </h2>
-          <p><strong>Location: </strong>Vancouver</p>
-          <p><strong>Karma: </strong>2134</p>
-          <p><strong>Posts: </strong>532</p>
-          <hr />
-          <p><strong>Bio: </strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-      </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="well">
-          <h1>Your Top Post</h1>
-          <hr />
-          <h2><%= link_to @featured_post.title %></h1>
-          <!-- , post_path(post) -->
-          <p><%= @featured_post.body %></p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-      </div>
-
-    <% else %>
-
-      <div class="col-md-4">
-            <div class="well">
-        <%= form_tag sessions_path do %>
-              <h2 class="form-signin-heading">Please sign in</h2>
-          <div class="">
-            <%= email_field_tag :email, nil, placeholder: "Email address", :class => "form-control" %>
-          </div>
-          <div class="">
-            <%= password_field_tag :password, nil, placeholder: "Password", :class => "form-control" %>
-          </div>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" value="remember-me"> Remember me
-            </label>
-          </div>
-        <%= submit_tag "Login", :class => "btn btn-lg btn-primary btn-block" %>
-        <h2> <%= link_to 'Sign up', new_user_path %></h2>
-        <% end %>
-      </div>
+<div class="login-box">
+  <% if user_signed_in? %>
+  <div class="col-md-6">
+    <div class="well">
+      <a href="#" class="pull-right">edit</a>
+      <img class="img_icon" src="http://cagewheel.com/images/thumb1.png" alt="">
+      <h2><%= current_user.username %> </h2>
+      <p><strong>Location: </strong>Vancouver</p>
+      <p><strong>Karma: </strong>2134</p>
+      <p><strong>Posts: </strong>532</p>
+      <hr />
+      <p><strong>Bio: </strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </div>
-      <% end %>
-    </div>
+  </div>
+</div>
+
+<div class="col-md-6">
+  <div class="well">
+    <h1>Your Top Post</h1>
+    <hr />
+    <h2><%= link_to @featured_post.title %></h1>
+    <!-- , post_path(post) -->
+    <p><%= @featured_post.body %></p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+</div>
+
+<!-- if not logged in -->
+<% else %>
+<div class="row">
+  <div class="col-md-4">
+  </div>
+<!--  -->
+  <div class="col-md-4">
+    <%= form_tag sessions_path do %>
+      <h2 class="text-center">Please sign in first</h2>
+      <div class="well">
+      <div class="">
+        <%= email_field_tag :email, nil, placeholder: "Email address", :class => "form-control" %>
+      </div>
+      <div class="">
+        <%= password_field_tag :password, nil, placeholder: "Password", :class => "form-control" %>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+    <%= submit_tag "Login", :class => "btn btn-lg btn-primary btn-block" %>
+
+    <a class="pull-right" href="#">Forgot password?</a>
+    <h4> <%= link_to 'Sign up', new_user_path %></h4>
+
+    <% end %>
+  </div>
+</div>
+  <% end %>
+</div>
