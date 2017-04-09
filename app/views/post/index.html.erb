@@ -1,6 +1,6 @@
 <div class="">
 
-  <%= link_to 'New Blog Post', new_blog_path(@post), :class => "btn btn-lg btn-primary pull-right"  %>
+  <%= link_to 'New Blog Post', new_post_path(@post), :class => "btn btn-lg btn-primary pull-right"  %>
   <h1>Blogz</h1>
   The best blogsite NA
   <hr>
@@ -20,7 +20,6 @@
         <a href="#" class="pull-right"><i class="fa fa-bookmark-o fa-2x" aria-hidden="true"></i></a>
       </div>
       <h1><%= link_to @featured_post.title %></h1>
-      <!-- , post_path(post) -->
       <p><%= @featured_post.body %></p>
 
     </div>
@@ -75,7 +74,7 @@
                 <a href="#" class="pull-right"><i class="fa fa-bookmark-o fa-2x" aria-hidden="true"></i></a>
               </div>
             </div>
-            <h2><%= link_to post.title, blog_path(post) %></h2>
+            <h2><%= link_to post.title, post_path(post) %></h2>
             <p><%= post.body %></p>
           </div>
         <% end %>

@@ -13,7 +13,7 @@
       <a href="/">
         <img id="navlogo" class="navbar-brand" src="https://blog.vararu.org/content/images/2014/May/logo-main-grey-2x.png" alt="">
       </a>
-      <%= link_to 'Blogz Feed', blog_index_path, class: 'navbar-brand' %>
+      <%= link_to 'Blogz Feed', post_index_path, class: 'navbar-brand' %>
 
     </div>
 
@@ -24,7 +24,7 @@
         <li class="<%= 'active' if current_page?(about_path) %>"><%= link_to 'About', about_path %></li>
         <li class="<%= 'active' if current_page?(contact_path) %>"><%= link_to 'Contact', contact_path %></li>
 
-        <li class="navbar-form pull-right">
+        <li class="navbar-form pull-right hidden-md-down">
           <%= form_tag("/search", :method => "get") do %>
              <%= text_field_tag :search, nil, placeholder: "Search", :class => "form-control" %>
            <% end %>
