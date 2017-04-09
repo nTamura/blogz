@@ -1,5 +1,6 @@
-<div class="">
+<!-- post index page -->
 
+<div class="">
   <%= link_to 'New Blog Post', new_post_path(@post), :class => "btn btn-lg btn-primary pull-right"  %>
   <h1>Blogz</h1>
   The best blogsite NA
@@ -19,8 +20,8 @@
         <a href="#"><i class="fa fa-comment-o fa-2x" aria-hidden="true"></i></a>
         <a href="#" class="pull-right"><i class="fa fa-bookmark-o fa-2x" aria-hidden="true"></i></a>
       </div>
-      <h1><%= link_to @featured_post.title %></h1>
-      <p><%= @featured_post.body %></p>
+      <h1><%#= link_to featured_post.title, post_path(featured_post) %></h1>
+      <p><%#= @featured_post.body %></p>
 
     </div>
 

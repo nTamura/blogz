@@ -1,3 +1,4 @@
+<!-- User welcome dashboard -->
 <div class="">
   <% if user_signed_in? %>
     <h1>Welcome <%= current_user.username %></h1>
@@ -28,9 +29,9 @@
   <div class="well">
     <h1>Your Top Post</h1>
     <hr />
-    <h2><%= link_to @featured_post.title %></h1>
+    <h2><%= link_to @featured_post %></h1>
     <!-- , post_path(post) -->
-    <p><%= @featured_post.body %></p>
+    <p><%= @featured_post %></p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </div>
 </div>

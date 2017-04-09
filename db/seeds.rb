@@ -1,9 +1,11 @@
+@posts = Post.all
+# @featured_post = Post.last
 
 30.times do
   User.create(username: Faker::Name.first_name,
               email: Faker::Internet.email,
-              password: '1234',
-              password_confirmation: '1234')
+              password: 'qwe',
+              password_confirmation: 'qwe')
 end
 puts "Users generated!"
 
@@ -25,6 +27,8 @@ puts 'Admin created!'
               )
 end
 puts 'Posts generated'
+
+
 
 Post.all.each do |q|
   rand(1..15).times do

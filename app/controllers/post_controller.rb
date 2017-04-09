@@ -4,9 +4,9 @@ class PostController < ApplicationController
     before_action :find_post, only: [:show, :edit, :update, :destroy]
 
     def index
-      @posts = Post.last(90)
+      @posts = Post.last(12)
       @post = Post.new
-      @featured_post = Post.last
+      @featured_post = Post.first
 
     end
 
