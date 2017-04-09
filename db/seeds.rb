@@ -1,7 +1,7 @@
 @posts = Post.all
 # @featured_post = Post.last
 
-30.times do
+100.times do
   User.create(username: Faker::Name.first_name,
               email: Faker::Internet.email,
               password: 'qwe',
@@ -32,6 +32,7 @@ puts 'Posts generated'
 
 Post.all.each do |q|
   rand(1..15).times do
+    user = User.all.sample
     q.comments.create(
       username: Faker::Name.first_name,
       body: Faker::ChuckNorris.fact,
@@ -40,3 +41,14 @@ Post.all.each do |q|
   end
 end
 puts 'Comments generated'
+
+Product.all.each do |product|
+  5.times do
+    user = User.all.sample
+
+    product.reviews.create(rating: rand(6),
+                           body: Faker::Hipster.paragraph,
+                           user_id: user.id
+    )
+  end
+end
