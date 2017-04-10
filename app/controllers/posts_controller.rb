@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Posts.last(12)
-    @post = Posts.new
+    @post = Post.new
     @featured_post = Posts.first
   end
 
@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     @post.user = current_user
 
     if @post.save
-      redirect_to post_path(@post)
+      redirect_to posts_path(@post)
       # redirect_to :index
     else
       render :new
@@ -39,7 +39,7 @@ class PostsController < ApplicationController
     if !(can? :edit, @post)
       redirect_to root_path, alert: 'Access denied'
     elsif @post.update(post_params)
-      redirect_to post_path(@post), notice: 'Post updated'
+      redirect_to posts_path(@post), notice: 'Post updated'
     else
     render :edit
     end

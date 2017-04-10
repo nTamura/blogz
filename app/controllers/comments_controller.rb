@@ -9,9 +9,9 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      redirect_to post_path(@post), notice: 'Comment posted!'
+      redirect_to posts_path(@post), notice: 'Comment posted!'
     else
-      redirect_to post_path(@post), alert: "Failed to create post"
+      redirect_to posts_path(@post), alert: "Failed to create post"
 
     end
   end
@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
      @comment = Comment.find(params[:id])
      @comment.destroy
      if @comment.save
-       redirect_to post_path(@post), notice: "Comment deleted!"
+       redirect_to posts_path(@post), notice: "Comment deleted!"
      else
        render :index
      end
