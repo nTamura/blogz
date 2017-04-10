@@ -1,5 +1,7 @@
 class WelcomeController < ApplicationController
+
   def new
+    @post = Post.new
   end
 
   def index
@@ -9,6 +11,7 @@ class WelcomeController < ApplicationController
   end
 
   def create
+    @post = Post.new
   end
 
 

@@ -2,12 +2,15 @@
 
 <div class="">
   <%= link_to 'New Blog Post', new_post_path(@post), :class => "btn btn-lg btn-primary pull-right"  %>
-  <h1>Blogz</h1>
-  The best blogsite NA
+  <h1>Blogz <small>The best blogsite NA</small></h1>
+  <% if user_signed_in? %>
+    <h4>Welcome, <%= current_user.username %> </h4>
+  <% end %>
+
   <hr>
 </div>
 
-
+<!-- featured post -->
 <div class="container-fluid hidden-sm hidden-xs">
   <div class="row">
     <div class="col-md-8">
@@ -20,8 +23,8 @@
         <a href="#"><i class="fa fa-comment-o fa-2x" aria-hidden="true"></i></a>
         <a href="#" class="pull-right"><i class="fa fa-bookmark-o fa-2x" aria-hidden="true"></i></a>
       </div>
-      <h1><%#= link_to featured_post.title, post_path(featured_post) %></h1>
-      <p><%#= @featured_post.body %></p>
+      <h1><%= link_to @featured_post.title, post_path(@featured_post) %></h1>
+      <p><%= @featured_post.body %></p>
 
     </div>
 
@@ -63,6 +66,7 @@
     <hr>
   </div>  <!-- end of hidden on sm  -->
 
+<!-- all posts list -->
     <% @posts.each_slice(3) do |triplets|  %>
       <div class="row">
         <% triplets.each do |post|  %>

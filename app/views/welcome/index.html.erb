@@ -29,9 +29,9 @@
   <div class="well">
     <h1>Your Top Post</h1>
     <hr />
-    <h2><%= link_to @featured_post %></h1>
+    <h2><%= link_to @featured_post.title %></h1>
     <!-- , post_path(post) -->
-    <p><%= @featured_post %></p>
+    <p><%= @featured_post.body %></p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </div>
 </div>
@@ -46,24 +46,24 @@
     <%= form_tag sessions_path do %>
       <h2 class="text-center">Please sign in first</h2>
       <div class="well">
-      <div class="">
-        <%= email_field_tag :email, nil, placeholder: "Email address", :class => "form-control" %>
-      </div>
-      <div class="">
-        <%= password_field_tag :password, nil, placeholder: "Password", :class => "form-control" %>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-      </div>
-    <%= submit_tag "Login", :class => "btn btn-lg btn-primary btn-block" %>
+        <div class="">
+          <%= email_field_tag :email, nil, placeholder: "Email address", :class => "form-control" %>
+        </div>
+        <div class="">
+          <%= password_field_tag :password, nil, placeholder: "Password", :class => "form-control" %>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+      <%= submit_tag "Login", :class => "btn btn-lg btn-primary btn-block" %>
 
-    <a class="pull-right" href="#">Forgot password?</a>
-    <h4> <%= link_to 'Sign up', new_user_path %></h4>
+      <a class="pull-right" href="#">Forgot password?</a>
+      <h4> <%= link_to 'Sign up', new_user_path %></h4>
 
-    <% end %>
-  </div>
-</div>
+      <% end %>
+      </div>
+    </div>
   <% end %>
 </div>
