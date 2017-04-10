@@ -4,11 +4,8 @@ Rails.application.routes.draw do
   get '/about', to: 'about#index'
   get '/contact', to: 'contact#index'
 
-  resources :blog do
-    resources :comments, only: [:create, :destroy]
-end
-  resources :post
-  resources :post do
+  resources :posts
+  resources :posts do
   resources :comments, only: [:create, :destroy]
 end
   resources :users, only: [:new, :create]

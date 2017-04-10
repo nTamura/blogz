@@ -1,4 +1,4 @@
-class Post < ApplicationRecord
+class Posts < ApplicationRecord
   has_many :comments, dependent: :nullify
   belongs_to :user
 

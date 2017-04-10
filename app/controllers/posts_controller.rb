@@ -1,15 +1,15 @@
-class PostController < ApplicationController
+class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
   before_action :find_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.last(12)
-    @post = Post.new
-    @featured_post = Post.first
+    @posts = Posts.last(12)
+    @post = Posts.new
+    @featured_post = Posts.first
   end
 
   def show
-    @post = Post.find(params[:id])
+    @posts = Posts.find(params[:id])
     @users = User.all
     @comment = Comment.new
     @comments = Comment.all
@@ -20,7 +20,7 @@ class PostController < ApplicationController
   end
 
   def create
-    @post = Post.new post_params
+    @post = Posts.new post_params
     @post.user = current_user
 
     if @post.save
@@ -62,6 +62,6 @@ class PostController < ApplicationController
     end
 
     def find_post
-      @post = Post.find params[:id]
+      @post = Posts.find params[:id]
     end
   end

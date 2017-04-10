@@ -1,6 +1,6 @@
-@posts = Post.all
-@comments = Post.comment.all
-# @featured_post = Post.last
+@posts = Posts.all
+# @comments = Posts.comment.all
+# @featured_post = Posts.last
 
 100.times do
   User.create(username: Faker::Name.first_name,
@@ -19,7 +19,7 @@ puts 'Admin created!'
 
 12.times do
   user = User.all.sample
-  Post.create(
+  Posts.create(
     title: Faker::Book.title,
     body: Faker::ChuckNorris.fact,
     user_id: user.id
@@ -29,13 +29,13 @@ puts 'Admin created!'
 end
 puts 'Posts generated'
 
-Post.all.each do |q|
+Posts.all.each do |q|
   rand(1..15).times do
     user = User.all.sample
     q.comments.create(
-      username: Faker::Name.first_name,
+      # username: Faker::Name.first_name,
       body: Faker::ChuckNorris.fact,
-      user_id: user.id
+      # user_id: user.id
     )
   end
 end

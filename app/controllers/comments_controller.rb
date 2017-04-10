@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy]
 
   def create
-    @post = Post.find(params[:post_id])
+    @post = Posts.find(params[:post_id])
     comment_params = params.require(:comment).permit(:username, :body)
     @comment = Comment.new comment_params
     @comment.post = @post
@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
      if @comment.save
        redirect_to post_path(@post), notice: "Comment deleted!"
      else
-       render :index 
+       render :index
      end
    end
   #  if can? :destroy, @question
@@ -40,7 +40,7 @@ class CommentsController < ApplicationController
   end
 
   def find_post
-    @post = Post.find params[:id]
+    @post = Posts.find params[:id]
   end
 
   def comment_params
