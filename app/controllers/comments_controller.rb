@@ -9,29 +9,32 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      redirect_to posts_path(@post), notice: 'Comment posted!'
+      redirect_to post_path(@post), notice: 'Comment posted!'
     else
-      redirect_to posts_path(@post), alert: "Failed to create post"
+      redirect_to post_path(@post), alert: "Failed to create post"
 
     end
   end
 
   def destroy
-     @comment = Comment.find(params[:id])
-     @comment.destroy
-     if @comment.save
-       redirect_to posts_path(@post), notice: "Comment deleted!"
-     else
-       render :index
-     end
-   end
-  #  if can? :destroy, @post
-  #    @post.destroy
-  #    redirect_to posts_path, notice: 'Post deleted'
-  #  else
-  #  redirect_to root_path, alert: 'Access denied'
+    @post = Post.find params[:post_id]
+    comment = Comment.find(params[:id])
+    #  @comment.destroy
+  #    if @comment.save
+  #      redirect_to posts_path(@post), notice: "Comment deleted!"
+  #    else
+  #      render :index
+  #    end
   #  end
- # end
+
+       if can? :destroy, @comment
+         @comment.destroy
+         redirect_to post_path(@post), notice: 'Post deleted'
+       else
+       redirect_to post_path(@post), alert: 'Access denied'
+       end
+     end
+
 
   private
 
@@ -47,7 +50,7 @@ class CommentsController < ApplicationController
     params.require(:comment).permit([:body])
   end
 
-  def find_post
+  def find_comment
     @comment = Comment.find params[:id]
   end
 

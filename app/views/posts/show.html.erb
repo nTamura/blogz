@@ -15,6 +15,7 @@
 
 <!-- show post -->
     <h1><%= @post.title %></h1>
+    <p>Post by: <%= @post.user.username %></p>
     <hr />
 
     <div class="img_container">
@@ -34,26 +35,41 @@
     <hr />
     <br />
 
-    <%= @comment.errors.full_messages.join(', ') %>
-    <%= form_for [@post, @comment] do |f| %>
-      <%= f.text_area :body %>
-      <%= f.submit %>
-    <% end %>
+    <div class="">
+      <%= @comment.errors.full_messages.join(', ') %>
 
+      <% if user_signed_in? %>
+      <p>Posting as: <strong><%= current_user.username %></strong></p>
+      <% end %>
+      <%= form_for [@post, @comment] do |f| %>
+      <div class="form-group">
+        <%= f.text_area :body, class: "form-control" %>
+        <br>
+
+        <%= f.submit :Submit, class: "pull-right btn btn-primary"  %>
+      </div>
+      <% end %>
+    </div>
+    <br>
+<hr>
 <!-- generate comments -->
+<div class="container-fluid">
+
     <% @post.comments.each do |comment| %>
       <p class="text-muted pull-right">Posted on: Jan 23 2016</p>
       <p class=""><strong>Username</strong></p>
       <p><%= comment.body %></p>
 
+  <% if can? :destroy, @comment %>
   <!-- link_to('Delete', [@post, @comment], -->
       <%= link_to('Delete', post_comment_path([@post, @comment]),
         method: :delete,
         data: {confirm: "Are you sure?"})%>
-      <hr />
+    <% else %>
     <% end %>
-
-
+    <hr />
+    <% end %>
   </div>
 
+  </div>
 </div>

@@ -23,7 +23,7 @@
         <a href="#"><i class="fa fa-comment-o fa-2x" aria-hidden="true"></i></a>
         <a href="#" class="pull-right"><i class="fa fa-bookmark-o fa-2x" aria-hidden="true"></i></a>
       </div>
-      <h1><%= link_to @featured_post.title, posts_path(@featured_post) %></h1>
+      <h1><%= link_to @featured_post.title, post_path(@featured_post) %></h1>
       <p><%= @featured_post.body %></p>
 
     </div>
@@ -67,9 +67,9 @@
   </div>  <!-- end of hidden on sm  -->
 
 <!-- all posts list -->
-    <% @posts.each_slice(3) do |triplets|  %>
+    <% @posts.each_slice(3) do |rows|  %>
       <div class="row">
-        <% triplets.each do |post|  %>
+        <% rows.each do |post|  %>
           <div class="col-sm-4">
             <div class="img_container">
               <img class="img_post" src="https://s3.drafthouse.com/images/made/12439707_9414869_pm_758_426_81_s_c1.jpg" alt="">
@@ -79,6 +79,9 @@
                 <a href="#" class="pull-right"><i class="fa fa-bookmark-o fa-2x" aria-hidden="true"></i></a>
               </div>
             </div>
+            <small class='pull-right'>Posted by:
+              <%= post.user.username %>
+            </small>
             <h2><%= link_to post.title, post_path(post) %></h2>
             <p><%= post.body %></p>
           </div>

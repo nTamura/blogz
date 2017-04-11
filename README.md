@@ -1,24 +1,26 @@
 # README
+## Blogz TODO lost
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Major priorities
+-edit user profile
+-social functionality
+*add onclick functions
+*add comment counters
+*add like counter
+*bookmark posts, show on dashboard
 
-Things you may want to cover:
 
-* Ruby version
+Minor priorities
+-reverse comment posted order
+-reverse post posted order
+-featured post is last posted post 
+-footer links
+-index side articles
+-add usernames to comments
+-implement realtime posted date
+-implement realtime comment date
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Bugs
+-sometimes logged in as random user on new session
+-sometimes cannot delete posts even if owner

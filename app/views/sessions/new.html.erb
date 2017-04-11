@@ -1,11 +1,11 @@
-
+<h1 class="">Please Log In </h1>
+<hr>
 <div class="row">
 
   <div class="col-md-4">
   </div>
 
   <div class="col-md-4">
-    <h1 class="text-center">Please log in below</h1>
     <div class="well">
 
       <%= form_tag sessions_path do %>
@@ -15,16 +15,16 @@
       <div class="">
         <%= password_field_tag :password, nil, placeholder: "Password", :class => "form-control" %>
       </div>
+      <br>
+      <%= submit_tag "Login", :class => "btn btn-lg btn-primary btn-block" %>
       <div class="checkbox">
+        <a class="pull-right" href="#">Forgot password?</a>
         <label>
           <input type="checkbox" value="remember-me"> Remember me
         </label>
       </div>
-      <%= submit_tag "Login", :class => "btn btn-lg btn-primary btn-block" %>
 
-      <a class="pull-right" href="#">Forgot password?</a>
       <h4> <%= link_to 'Sign up here', new_user_path %></h4>
-
       <% end %>
     </div>
   </div>

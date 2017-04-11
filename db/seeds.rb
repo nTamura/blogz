@@ -8,6 +8,12 @@
 end
 puts 'Users generated!'
 
+User.create(username: 'Nic',
+            email: 'nic@gmail.com',
+            password: 'qwe',
+            password_confirmation: 'qwe')
+puts 'User Nic created!'
+
 User.create(username: 'Admin',
             email: 'admin@gmail.com',
             password: 'qwe',
