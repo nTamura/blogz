@@ -5,12 +5,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    before_action :authenticate_user!
+    # before_action :authenticate_user!
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "User created and signed in!"
-      redirect_to blog_index_path
+      redirect_to root_path
     else
       flash[:alert] = "Something went wrong!!"
       render :new
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-  end 
+  end
 
   private
 
