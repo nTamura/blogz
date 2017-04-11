@@ -9,7 +9,7 @@ class Ability
       can :manage, :all
     end
 
-    can :edit, Posts do |post|
+    can :edit, Post do |post|
       post.user == user
     end
 

@@ -2,8 +2,8 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy]
 
   def create
-    @post = Posts.find(params[:post_id])
-    comment_params = params.require(:comment).permit(:username, :body)
+    @post = Post.find(params[:post_id])
+    comment_params = params.require(:comment).permit(:body)
     @comment = Comment.new comment_params
     @comment.post = @post
     @comment.user = current_user
@@ -25,11 +25,11 @@ class CommentsController < ApplicationController
        render :index
      end
    end
-  #  if can? :destroy, @question
-  #    @question.destroy
-  #    redirect_to questions_path, notice: 'Question Deleted'
+  #  if can? :destroy, @post
+  #    @post.destroy
+  #    redirect_to posts_path, notice: 'Post deleted'
   #  else
-  #  redirect_to root_path, alert: 'access denied'
+  #  redirect_to root_path, alert: 'Access denied'
   #  end
  # end
 
@@ -40,7 +40,7 @@ class CommentsController < ApplicationController
   end
 
   def find_post
-    @post = Posts.find params[:id]
+    @post = Post.find params[:id]
   end
 
   def comment_params

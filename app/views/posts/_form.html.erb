@@ -1,7 +1,8 @@
-<%# @post.errors.present? %>
-  <%#= @post.errors.full_messages.join(', ') %>
+<% if @post.errors.present? %>
+  <%= @post.errors.full_messages.join(', ') %>
+<% end %>
 
-<div class="col-md-6">
+<div class="col-md-8">
   <%= form_for @post do |f| %>
       <div class="form-group">
       <%= f.label :title %>
@@ -11,7 +12,13 @@
       <%= f.label :body %>
       <%= f.text_area :body, class: "form-control" %>
     </div>
-    <br>
-    <%= f.submit :submit, class: "pull-right btn btn-primary" %>
-    <% end %>
+    <div class="form-group">
+      <%= f.label :image %>
+      <br />
+      <label class="btn btn-default btn-file">
+        <input type="file" hidden>
+      </label>
+      <%= f.submit :submit, class: "pull-right btn btn-primary" %>
+    </div>
+  <% end %>
 </div>

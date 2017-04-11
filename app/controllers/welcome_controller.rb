@@ -1,17 +1,17 @@
 class WelcomeController < ApplicationController
 
   def new
-    @post = Posts.new
+    @post = Post.new
   end
 
   def index
-    @posts = Posts.last(12)
-    @post = Posts.new
-    @featured_post = Posts.last
+    @posts = Post.last(12)
+    @post = Post.new
+    @featured_post = Post.last
   end
 
   def create
-    @post = Posts.new
+    @post = Post.new
   end
 
 
@@ -22,6 +22,6 @@ class WelcomeController < ApplicationController
     end
 
     def find_post
-      @post = Posts.find params[:id]
+      @post = Post.find params[:id]
     end
 end

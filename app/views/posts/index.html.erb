@@ -1,7 +1,7 @@
 <!-- post index page -->
 
 <div class="">
-  <%= link_to 'New Blog Post', new_posts_path(@post), :class => "btn btn-lg btn-primary pull-right"  %>
+  <%= link_to 'New Blog Post', new_post_path(@post), :class => "btn btn-lg btn-primary pull-right"  %>
   <h1>Blogz <small>The best blogsite NA</small></h1>
   <% if user_signed_in? %>
     <h4>Welcome, <%= current_user.username %> </h4>
@@ -79,7 +79,7 @@
                 <a href="#" class="pull-right"><i class="fa fa-bookmark-o fa-2x" aria-hidden="true"></i></a>
               </div>
             </div>
-            <h2><%= link_to post.title, posts_path(post) %></h2>
+            <h2><%= link_to post.title, post_path(post) %></h2>
             <p><%= post.body %></p>
           </div>
         <% end %>

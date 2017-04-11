@@ -3,33 +3,34 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Posts.last(12)
+    @posts = Post.last(12)
     @post = Post.new
-    @featured_post = Posts.first
+    @featured_post = Post.first
   end
 
   def show
-    @posts = Posts.find(params[:id])
+    @post = Post.find(params[:id])
     @users = User.all
     @comment = Comment.new
     @comments = Comment.all
   end
 
   def new
-    redirect_to root_path, alert: 'Access denied!' unless can? :edit, @post
+    @post = Post.new
   end
 
   def create
-    @post = Posts.new post_params
+    post_params = params.require(:post).permit([:title, :body])
+    @post = Post.new post_params
     @post.user = current_user
 
     if @post.save
       redirect_to posts_path(@post)
-      # redirect_to :index
     else
       render :new
     end
   end
+
 
   def edit
     redirect_to root_path, alert: 'Access denied!' unless can? :edit, @post
@@ -62,6 +63,6 @@ class PostsController < ApplicationController
     end
 
     def find_post
-      @post = Posts.find params[:id]
+      @post = Post.find params[:id]
     end
   end
