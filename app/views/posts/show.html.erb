@@ -60,9 +60,9 @@
       <p class=""><strong>Username</strong></p>
       <p><%= comment.body %></p>
 
-  <% if can? :destroy, @comment %>
+  <% if can? :destroy, comment %>
   <!-- link_to('Delete', [@post, @comment], -->
-      <%= link_to('Delete', post_comment_path([@post, @comment]),
+      <%= link_to('Delete', post_comment_path(@post, comment),
         method: :delete,
         data: {confirm: "Are you sure?"})%>
     <% else %>

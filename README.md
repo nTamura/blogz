@@ -8,6 +8,7 @@
 - add comment counters
 - add like counter
 - bookmark posts, show on dashboard
+- dashboard feature doesnt show users post
 
 
 ### Minor priorities

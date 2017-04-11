@@ -9,8 +9,12 @@ class Ability
       can :manage, :all
     end
 
-    can :edit, Post do |post|
+    can [:edit, :destroy], Post do |post|
       post.user == user
+    end
+
+    can [:edit, :destroy], Comment do |comment|
+      comment.user == user
     end
 
     #   user ||= User.new # guest user (not logged in)
