@@ -1,19 +1,25 @@
 # README
 ## Blogz TODO lost
 
-Major priorities
+###Major priorities
+
 -edit user profile
+
 -social functionality
+
 *add onclick functions
+
 *add comment counters
+
 *add like counter
+
 *bookmark posts, show on dashboard
 
 
-Minor priorities
+###Minor priorities
 -reverse comment posted order
 -reverse post posted order
--featured post is last posted post 
+-featured post is last posted post
 -footer links
 -index side articles
 -add usernames to comments
@@ -21,6 +27,6 @@ Minor priorities
 -implement realtime comment date
 
 
-Bugs
+###Bugs
 -sometimes logged in as random user on new session
 -sometimes cannot delete posts even if owner
