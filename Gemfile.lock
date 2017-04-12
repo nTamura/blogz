@@ -179,7 +179,7 @@ DEPENDENCIES
   byebug
   cancancan (~> 1.10)
   coffee-rails (~> 4.2)
-  faker
+  faker (~> 1.7.3)
   hirb
   interactive_editor
   jbuilder (~> 2.5)

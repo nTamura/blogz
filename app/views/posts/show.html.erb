@@ -57,7 +57,7 @@
 
     <% @post.comments.each do |comment| %>
       <p class="text-muted pull-right">Posted on: Jan 23 2016</p>
-      <p class=""><strong>Username</strong></p>
+      <p class=""><strong><%= @users.sample.username %></strong></p>
       <p><%= comment.body %></p>
 
   <% if can? :destroy, comment %>

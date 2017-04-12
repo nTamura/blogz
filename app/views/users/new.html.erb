@@ -1,35 +1,36 @@
 <h1 class="">New Account</h1>
 <hr>
 <div class="row">
-
-  <div class="col-md-4">
-  </div>
-
-  <div class="col-md-4">
+  <div class="col-md-6 col-md-offset-3">
     <div class="well">
 
+      <%= form_for @user do |f| %>
+      <div class="form-group">
+        <%= f.text_field :username, class: 'form-control', placeholder: "Username" %>
+      </div>
+      <div class="form-group">
+        <%= f.email_field :email, class: 'form-control', placeholder: "Email Address"  %>
+      </div>
+      <div class="form-group">
+        <%= f.text_field :first_name, class: 'form-control', placeholder: "First Name" %>
+      </div>
+      <div class="form-group">
+        <%= f.text_field :last_name, class: 'form-control', placeholder: "Last Name" %>
+      </div>
+      <div class="form-group">
+        <%= f.password_field :password, class: 'form-control', placeholder: "Password"  %>
+      </div>
+      <div class="form-group">
+        <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "Confirm Password"  %>
+      </div>
 
+      <%= f.submit 'Sign up', class: 'btn btn-lg btn-primary btn-block' %>
+      <p class="text-muted text-center">
+      *By signing up I agree to the terms and conditions.
+      </p>
 
-<%= form_for @user do |f| %>
-
-  <div class="form-group">
-
-    <%= f.text_field :username, class: 'form-control', placeholder: "Username" %>
+      <p class="error_msg"><%= @user.errors.full_messages.join(', ') %></p>
+    </div>
+    <% end %>
   </div>
-  <div class="form-group">
-    <%= f.email_field :email, class: 'form-control', placeholder: "Email Address"  %>
-  </div>
-  <div class="form-group">
-    <%= f.password_field :password, class: 'form-control', placeholder: "Password"  %>
-  </div>
-  <div class="form-group">
-    <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "Confirm Password"  %>
-  </div>
-  <%= f.submit 'Sign up', class: 'btn btn-lg btn-primary btn-block' %>
-  <p class="text-muted">
-    *By signing up I agree to the terms and conditions.
-  </p>
-
-  <p class="error_msg"><%= @user.errors.full_messages.join(', ') %></p>
 </div>
-<% end %>

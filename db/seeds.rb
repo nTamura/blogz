@@ -1,8 +1,10 @@
 # @posts = Post.all
 
 100.times do
-  User.create(username: Faker::Name.first_name,
+  User.create(username: Faker::Internet.user_name,
               email: Faker::Internet.email,
+              first_name: Faker::Name.first_name,
+              last_name: Faker::Name.last_name,
               password: 'qwe',
               password_confirmation: 'qwe')
 end
@@ -10,12 +12,16 @@ puts 'Users generated!'
 
 User.create(username: 'Nic',
             email: 'nic@gmail.com',
+            first_name: 'Nic',
+            last_name: 'Tamura',
             password: 'qwe',
             password_confirmation: 'qwe')
 puts 'User Nic created!'
 
 User.create(username: 'Admin',
             email: 'admin@gmail.com',
+            first_name: 'Admin',
+            last_name: 'Admin',
             password: 'qwe',
             password_confirmation: 'qwe',
             is_admin: true)
@@ -37,7 +43,7 @@ Post.all.each do |q|
   rand(4..15).times do
     user = User.all.sample
     q.comments.create(
-      # username: Faker::Name.first_name,
+      # username: Faker::Internet.user_name,
       body: Faker::ChuckNorris.fact,
       # user_id: user.id
     )

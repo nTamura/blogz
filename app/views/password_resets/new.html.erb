@@ -1,0 +1,29 @@
+<h1>Password Reset</h1>
+<hr>
+
+<div class="row">
+
+  <div class="col-md-6 col-md-offset-3">
+    <div class="well">
+
+      <%= form_for @user do |f|  %>
+      <div class="form-group">
+        <%= f.text_field :username, class: 'form-control', placeholder: "Username" %>
+      </div>
+      <div class="form-group">
+        <%= f.email_field :email, class: 'form-control', placeholder: "Email Address"  %>
+      </div>
+
+      <div class="form-group">
+        <%= f.password_field :password, class: 'form-control', placeholder: "New Password"  %>
+      </div>
+      <div class="form-group">
+        <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "Confirm New Password"  %>
+      </div>
+
+    <%= submit_tag "Submit", :class => "btn btn-lg btn-primary btn-block" %>
+    <% end %>
+<p class="text-center text-muted">*An email with a confirmation code will be sent to the above email address</p>
+  </div>
+</div>
+</div>
