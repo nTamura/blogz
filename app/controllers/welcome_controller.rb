@@ -8,6 +8,7 @@ class WelcomeController < ApplicationController
     @posts = Post.last(12)
     @post = Post.new
     @featured_post = Post.last
+    # @your_post = want this to be your last post
   end
 
   def create

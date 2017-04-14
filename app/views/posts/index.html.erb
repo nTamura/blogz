@@ -23,7 +23,9 @@
         <a href="#"><i class="fa fa-comment-o fa-2x" aria-hidden="true"></i></a>
         <a href="#" class="pull-right"><i class="fa fa-bookmark-o fa-2x" aria-hidden="true"></i></a>
       </div>
+      <p class='pull-right'>Post by: <%= @featured_post.user.username %></p>
       <h1><%= link_to @featured_post.title, post_path(@featured_post) %></h1>
+
       <p><%= @featured_post.body %></p>
 
     </div>

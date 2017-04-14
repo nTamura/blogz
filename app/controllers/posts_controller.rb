@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.last(12)
     @post = Post.new
-    @featured_post = Post.first
+    @featured_post = Post.last
   end
 
   def show

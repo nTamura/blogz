@@ -39,13 +39,13 @@ puts 'Admin created!'
 end
 puts 'Posts generated'
 
-Post.all.each do |q|
-  rand(4..15).times do
+Post.all.each do |post|
+  rand(4..10).times do
     user = User.all.sample
-    q.comments.create(
+    post.comments.create(
       # username: Faker::Internet.user_name,
       body: Faker::ChuckNorris.fact,
-      # user_id: user.id
+      user_id: user.id
     )
   end
 end
